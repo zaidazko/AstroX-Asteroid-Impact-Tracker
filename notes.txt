@@ -1,0 +1,5 @@
+api key exposed currently in the axios call in fetchAsteroidsDaily.js
+
+
+my api key:: wbNJqgXlfJZBt9SsMhvZQec0YFkpfkrQjVyyTZ0w
+
