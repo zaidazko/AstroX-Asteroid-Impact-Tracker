@@ -9,5 +9,5 @@ const asteroidSchema = new mongoose.Schema({
     velocity_kph: Number,
     hazardous: Boolean
 })
-
+asteroidSchema.index({ name: 1, close_approach_date: 1 }, { unique: true });
 export default mongoose.model("Asteroids", asteroidSchema)

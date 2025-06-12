@@ -32,7 +32,7 @@ export const fetchDailyAsteroids = async (date) => {
 
     for(const asteroid of allAsteroids) {
         const exists = await Asteroid.findOne({
-            name: asteroid.name,
+            name: asteroid.name.trim(),
             close_approach_date: asteroid.close_approach_date
         })
         if(!exists){
