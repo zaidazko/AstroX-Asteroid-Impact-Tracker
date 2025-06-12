@@ -30,7 +30,6 @@ import {
 } from "@/components/ui/tooltip"
 import { Gauge, Ruler, CircleOff, TriangleAlert, CircleX, ExternalLink } from 'lucide-react'
 
-import Asteroid from '../../../../server/models/Asteroid'
 
 
 
