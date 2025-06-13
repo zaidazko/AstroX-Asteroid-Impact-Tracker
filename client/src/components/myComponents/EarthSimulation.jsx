@@ -7,6 +7,7 @@ import Asteroid from '/public/Asteroid'
 import { useAsteroidStore } from '../../stores/asteroidStore'
 
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const EarthSimulation = () => {
   const [asteroids, setAsteroids] = useState([])
@@ -23,7 +24,7 @@ const EarthSimulation = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/astroX"); // adjust if needed
+        const res = await axios.get(`${BASE_URL}/astroX`); // adjust if needed
         setAsteroids(res.data.data);
         res.data.data.forEach((asteroid) => {
           if (!asteroidPositions.current[asteroid._id]) {

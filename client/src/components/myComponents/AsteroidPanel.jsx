@@ -31,6 +31,8 @@ import {
 import { Gauge, Ruler, CircleOff, TriangleAlert, CircleX, ExternalLink } from 'lucide-react'
 
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 
 const AsteroidPanel = () => {
@@ -41,11 +43,10 @@ const AsteroidPanel = () => {
   const [hazardous, setHazardous] = useState(false)
   const [filter, setFilter] = useState('date')
   const [input, setInput] = useState('')
-
   useEffect(() => {
     const fetchAsteroids = async () => {
       try{
-          const response = await axios.get(`http://localhost:3000/astroX?hazardous=${hazardous}&sortBy=${filter}&search=${input}`)
+          const response = await axios.get(`${BASE_URL}/astroX?hazardous=${hazardous}&sortBy=${filter}&search=${input}`)
           return setAsteroids(response.data.data)
       } catch (err) {
         console.log(err)

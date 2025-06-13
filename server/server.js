@@ -12,7 +12,23 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use(express.json())
-app.use(cors());
+
+const allowedOrigins = [
+    'http://localhost:5173',                    // for local dev
+    'https://astrox-frontend.onrender.com'      // for production frontend
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+    credentials: true // optional: allow cookies/auth
+}));
+
 app.use(morgan("dev"))
 
 app.use("/astroX", routes)
