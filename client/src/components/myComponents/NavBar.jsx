@@ -16,7 +16,7 @@ const NavBar = () => {
         </div>
         <div className="flex gap-2 justify-center items-center">
           <p>Powered by Nasa's NeoWs API</p>
-          <img src='public/nasa.png' className="size-10"></img>
+          <img src='nasa.png' className="size-10"></img>
 
         </div>
         
