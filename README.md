@@ -2,7 +2,7 @@
 
 Asteroid Impact Alert Dashboard is a full-stack MERN application that tracks near-Earth asteroids using NASA's NEO API. It features real-time data visualization, filtering tools, and an interactive 3D simulation of asteroid positions relative to Earth.
 ---
-[link text](https://astrox-frontend.onrender.com/)
+[Live App Demo](https://astrox-frontend.onrender.com/)
 
 ## 🚀 Features
 
