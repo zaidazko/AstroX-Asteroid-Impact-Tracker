@@ -13,7 +13,6 @@ export const fetchAsteroids = async (req, res) => {
             query.name = {$regex: req.query.search, $options: 'i'}
         }
 
-
         console.log(query)
 
         const filter = req.query.sortBy
@@ -27,15 +26,9 @@ export const fetchAsteroids = async (req, res) => {
     }
 }
 
-const removeOldAsteroids = async () => {
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 14); //get 14 days ago
-    await Asteroid.deleteMany({date: {$lt: cutoff}}) //deletes asteroids after 14 days 
-}
 
 cron.schedule('0 0 * * *', async () => {
     await fetchDailyAsteroids();
-    await removeOldAsteroids();
 })  
 
 

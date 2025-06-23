@@ -6,6 +6,11 @@ dotenv.config()
 const API_KEY = process.env.API_KEY
 
 export const fetchDailyAsteroids = async (date) => {
+    // Delete Old Asteroids Here
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 14); //get 14 days ago
+    await Asteroid.deleteMany({date: {$lt: cutoff}}) //deletes asteroids after 14 days
+
     const priorWeek = date || fetchDaily()
 
     const response = await axios.get(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${priorWeek}&end_date=&api_key=${API_KEY}`)
